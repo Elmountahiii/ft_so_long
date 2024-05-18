@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_join_three.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/18 00:06:01 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/18 21:56:07 by yel-moun         ###   ########.fr       */
+/*   Created: 2024/05/02 16:49:20 by yel-moun          #+#    #+#             */
+/*   Updated: 2024/05/16 12:06:01 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "lib.h"
 
-int main(int argc, char *argv[])
+char	*ft_join_three(char *one, char *two, char *three)
 {
-	if (argc == 2)
-		ft_validate_map(argv[1]);
-	else
-		ft_error_exit("Error: Invalid number of arguments.\n");
-	return (0);	
+	char	*join;
+	char	*temp;
+
+	if (!one || !two || !three)
+		return (NULL);
+	temp = ft_strjoin(one, two);
+	join = ft_strjoin(temp, three);
+	free(temp);
+	return (join);
 }

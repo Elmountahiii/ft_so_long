@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/18 00:06:01 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/18 21:56:07 by yel-moun         ###   ########.fr       */
+/*   Created: 2024/04/26 22:38:26 by yel-moun          #+#    #+#             */
+/*   Updated: 2024/05/14 14:00:15 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "lib.h"
 
-int main(int argc, char *argv[])
+char	*ft_strchr(char *s, int c)
 {
-	if (argc == 2)
-		ft_validate_map(argv[1]);
-	else
-		ft_error_exit("Error: Invalid number of arguments.\n");
-	return (0);	
+	int	i;
+	int	length;
+
+	i = 0;
+	if (!s)
+		return (NULL);
+	length = ft_strlen(s);
+	while (i <= length)
+	{
+		if (s[i] == ((char)c))
+		{
+			return ((char *)&s[i]);
+		}
+		i ++;
+	}
+	return (NULL);
 }

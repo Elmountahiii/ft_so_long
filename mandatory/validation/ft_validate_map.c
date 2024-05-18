@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_validate_map.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/18 00:06:01 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/18 21:56:07 by yel-moun         ###   ########.fr       */
+/*   Created: 2024/05/18 20:53:03 by yel-moun          #+#    #+#             */
+/*   Updated: 2024/05/18 21:35:15 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-int main(int argc, char *argv[])
+void	ft_validate_map(char *file)
 {
-	if (argc == 2)
-		ft_validate_map(argv[1]);
-	else
-		ft_error_exit("Error: Invalid number of arguments.\n");
-	return (0);	
+	int		fd;
+	int		len;
+
+	if (ft_validate_extention(file) == 0)
+		ft_error_exit("Error: Invalid file extention.\n");
+	fd = open(file, O_RDONLY);
+	if (fd == -1)
+		ft_error_exit("Error: Invalid file.\n");
+	len = ft_count_map_lines(file);
+	ft_validate_map_content(fd, len);
+	close(fd);
 }

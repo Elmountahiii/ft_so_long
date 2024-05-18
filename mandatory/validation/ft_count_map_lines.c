@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_count_map_lines.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/18 00:06:01 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/18 21:56:07 by yel-moun         ###   ########.fr       */
+/*   Created: 2024/05/18 21:31:20 by yel-moun          #+#    #+#             */
+/*   Updated: 2024/05/18 22:03:24 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-int main(int argc, char *argv[])
+int	ft_count_map_lines(char *file)
 {
-	if (argc == 2)
-		ft_validate_map(argv[1]);
-	else
-		ft_error_exit("Error: Invalid number of arguments.\n");
-	return (0);	
+	int		len;
+	int		fd;
+	char	*line;
+	
+	len = 0;
+	fd = open(file, O_RDONLY);
+	if (fd == -1)
+		ft_error_exit("Error: Invalid file.\n");
+	line = get_next_line(fd);
+	while (line != NULL)
+	{
+		len++;
+		free(line);
+		line = get_next_line(fd);
+	}
+	close(fd);
+	return (len);
 }
