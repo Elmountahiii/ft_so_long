@@ -7,6 +7,7 @@ SRC_FILES = main.c
 SRC = $(addprefix $(PREFIX), $(SRC_FILES))
 OBJ = $(SRC:.c=.o)
 HEADER = mandatory/so_long.h
+LIBS = libmlx42.a -lglfw -framework Cocoa -framework OpenGL -framework IOKit
 
 all: $(NAME)
 
@@ -15,7 +16,7 @@ all: $(NAME)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ) 
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBS)
 
 clean:
 	$(RM) $(OBJ)
