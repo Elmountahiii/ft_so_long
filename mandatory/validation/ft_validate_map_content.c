@@ -1,22 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_validate_map_content.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/18 00:06:01 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/18 21:56:07 by yel-moun         ###   ########.fr       */
+/*   Created: 2024/05/18 21:01:54 by yel-moun          #+#    #+#             */
+/*   Updated: 2024/05/18 22:39:16 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-int main(int argc, char *argv[])
+void	ft_validate_map_content(int fd, int len)
 {
-	if (argc == 2)
-		ft_validate_map(argv[1]);
-	else
-		ft_error_exit("Error: Invalid number of arguments.\n");
-	return (0);	
+	char 	**map;
+	int		i;
+
+	i = 0;
+	map = malloc(sizeof(char *) * (len + 1));
+	if (map == NULL)
+		ft_error_exit("Error: Malloc failed.\n");
+	map[len] = NULL;
+	while (i < len)
+	{
+		map[i] = get_next_line(fd);
+		i++;
+	}
+	i = 0;
+	while (map[i] != NULL)
+	{
+		ft_validate_line_content(map[i]);
+		i ++;
+	}
+	ft_print_map(map);
 }

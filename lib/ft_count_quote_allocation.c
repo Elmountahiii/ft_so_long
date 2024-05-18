@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_count_quote_allocation.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/18 00:06:01 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/18 21:56:07 by yel-moun         ###   ########.fr       */
+/*   Created: 2024/05/04 16:00:36 by yel-moun          #+#    #+#             */
+/*   Updated: 2024/05/07 12:02:35 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "lib.h"
 
-int main(int argc, char *argv[])
+int	ft_count_quote_allocation(char *str, int *start)
 {
-	if (argc == 2)
-		ft_validate_map(argv[1]);
-	else
-		ft_error_exit("Error: Invalid number of arguments.\n");
-	return (0);	
+	int		i;
+	char	sign;
+
+	i = 0;
+	sign = str[(*start)];
+	(*start)++;
+	while (str[(*start) + i] && str[(*start) + i] != sign)
+		i ++;
+	return (i);
 }
