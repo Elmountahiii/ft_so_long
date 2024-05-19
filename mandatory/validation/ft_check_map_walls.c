@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_check_map_walls.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/18 00:06:01 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/19 11:50:44 by yel-moun         ###   ########.fr       */
+/*   Created: 2024/05/19 11:21:27 by yel-moun          #+#    #+#             */
+/*   Updated: 2024/05/19 13:10:51 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-void check_leaks()
-{	
-	//system("leaks so_long");
-}
-
-int main(int argc, char *argv[])
+void	ft_check_map_walls(char **map)
 {
-	t_game *game;
-	atexit(check_leaks);
-	if (argc == 2)
+	int		i;
+	int		last;
+
+	i = 0;
+	while (map[i] != NULL)
 	{
-		game = ft_init_struct(argv[1]);
-		ft_validate_map(game);
-		ft_clean_struct(game);
+		if (map[i][0] != '1' || map[i][ft_strlen(map[i]) - 2] != '1')
+			ft_error_exit("Map is not surrounded by walls\n");
+		last = i;
+		i++;
 	}
-	else
-		ft_error_exit("Error: Invalid number of arguments.\n");
-	
-	return (0);	
+	if (ft_check_all_walls(map[0], true) ||ft_check_all_walls(map[last], false) )
+		ft_error_exit("Map is not surrounded by walls\n");
 }
