@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 00:25:28 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/19 00:30:50 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/19 16:49:24 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_init_map(t_game *game)
 	game->map = malloc(sizeof(t_map));
 	if (game->map == NULL)
 		ft_error_exit("Error: Malloc failed.\n");
+	game->map->player_x = 0;
+	game->map->player_y = 0;
 	game->map->content = NULL;
 	game->map->collectible_count = 0;
 	game->map->player_count = 0;
