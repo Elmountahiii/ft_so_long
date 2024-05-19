@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 00:07:41 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/19 14:39:54 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/19 18:16:10 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct s_map
 	int		player_count;
 	int		exit_count;
 	int		collectible_count;
+	int		player_x;
+	int		player_y;
 } t_map;
 
 typedef struct s_game
@@ -60,6 +62,8 @@ void	ft_check_map_shape(t_game *map);
 void	ft_check_map_size(t_game *game);
 int		ft_check_all_walls(char *line, bool first);
 void	ft_add_map_information(t_map *map);
+void	ft_check_map_movement(t_map *map);
+int		ft_check_reachable(char **map_cpy);
 // Debug
 void	ft_print_line_content(char *line);
 void	ft_print_map(char **map);

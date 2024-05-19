@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_validate_map_content.c                          :+:      :+:    :+:   */
+/*   ft_check_reachable.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/18 21:01:54 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/19 18:19:49 by yel-moun         ###   ########.fr       */
+/*   Created: 2024/05/19 18:00:31 by yel-moun          #+#    #+#             */
+/*   Updated: 2024/05/19 18:38:15 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	ft_validate_map_content(t_game *game)
+int	ft_check_reachable(char **map_cpy)
 {
 	int		i;
+	int		j;
 
 	i = 0;
-	ft_add_map_content(game->map);
-	ft_check_map_shape(game);
-	ft_check_map_walls(game->map->content);
-	ft_add_map_information(game->map);
-	ft_check_map_movement(game->map);
-	ft_print_map(game->map->content);
+	while (map_cpy && map_cpy[i])
+	{
+		j = 0;
+		while (map_cpy[i][j])
+		{
+			if (map_cpy[i][j] == 'P'  || map_cpy[i][j] == 'C')
+					return (1);
+			j ++;
+		}
+		i ++;
+	}
+	return (0);
 }
