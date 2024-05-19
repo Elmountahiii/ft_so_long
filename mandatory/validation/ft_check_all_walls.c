@@ -1,34 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_check_all_walls.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/18 00:06:01 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/19 11:50:44 by yel-moun         ###   ########.fr       */
+/*   Created: 2024/05/19 12:51:31 by yel-moun          #+#    #+#             */
+/*   Updated: 2024/05/19 12:58:27 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-void check_leaks()
-{	
-	//system("leaks so_long");
-}
-
-int main(int argc, char *argv[])
+int	ft_check_all_walls(char *line, bool first)
 {
-	t_game *game;
-	atexit(check_leaks);
-	if (argc == 2)
+	int	i;
+
+	i = 0;
+	if (first)
 	{
-		game = ft_init_struct(argv[1]);
-		ft_validate_map(game);
-		ft_clean_struct(game);
+		while (line && line[i])
+		{
+			if (i == ft_strlen(line) - 1)
+				return (0);
+			if (line[i] != '1')
+				return (1);
+			i ++;
+		}
 	}
 	else
-		ft_error_exit("Error: Invalid number of arguments.\n");
-	
-	return (0);	
+	{
+		while (line && line[i])
+		{
+			if (line[i] != '1')
+				return (1);
+			i ++;
+		}
+	}
+	return (0);
 }

@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_check_map_shape.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/18 00:06:01 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/19 11:50:44 by yel-moun         ###   ########.fr       */
+/*   Created: 2024/05/19 11:55:52 by yel-moun          #+#    #+#             */
+/*   Updated: 2024/05/19 12:40:19 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-void check_leaks()
-{	
-	//system("leaks so_long");
-}
-
-int main(int argc, char *argv[])
+void	ft_check_map_shape(t_game *map)
 {
-	t_game *game;
-	atexit(check_leaks);
-	if (argc == 2)
+	int i;
+
+	i = 0;
+	ft_check_map_size(map);
+	while (map->map->content[i] != NULL)
 	{
-		game = ft_init_struct(argv[1]);
-		ft_validate_map(game);
-		ft_clean_struct(game);
+		ft_validate_line_content(map->map->content[i]);
+		i++;
 	}
-	else
-		ft_error_exit("Error: Invalid number of arguments.\n");
-	
-	return (0);	
 }

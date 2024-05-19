@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_add_map_content.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/18 00:06:01 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/19 11:50:44 by yel-moun         ###   ########.fr       */
+/*   Created: 2024/05/19 11:39:03 by yel-moun          #+#    #+#             */
+/*   Updated: 2024/05/19 11:48:33 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-void check_leaks()
-{	
-	//system("leaks so_long");
-}
-
-int main(int argc, char *argv[])
+void	ft_add_map_content(t_map *map)
 {
-	t_game *game;
-	atexit(check_leaks);
-	if (argc == 2)
+	int		i;
+
+	i = 0;
+	map->content = malloc(sizeof(char *) * (map->len + 1));
+	if (map->content == NULL)
+		ft_error_exit("Error: Malloc failed.\n");
+	map->content[map->len] = NULL;
+	while (i < map->len)
 	{
-		game = ft_init_struct(argv[1]);
-		ft_validate_map(game);
-		ft_clean_struct(game);
+		map->content[i] = get_next_line(map->map_fd);
+		i++;
 	}
-	else
-		ft_error_exit("Error: Invalid number of arguments.\n");
-	
-	return (0);	
+	i = 0;
 }
