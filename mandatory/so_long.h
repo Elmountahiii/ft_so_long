@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 00:07:41 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/19 18:16:10 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/20 22:18:36 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
-# include "./MLX42.h"
+# include "mlx.h"
 # include <stdbool.h>
 # include "../lib/lib.h"
 
@@ -41,6 +41,13 @@ typedef struct s_map
 typedef struct s_game
 {
 	void	*mlx;
+	void	*player_image;
+	void	*wall_image;
+	void	*exit_image;
+	void	*collectible_image;
+	void	*floor_image;
+	int		x;
+	int		y;
 	void	*win;
 	t_map	*map;
 } t_game;
@@ -64,6 +71,10 @@ int		ft_check_all_walls(char *line, bool first);
 void	ft_add_map_information(t_map *map);
 void	ft_check_map_movement(t_map *map);
 int		ft_check_reachable(char **map_cpy);
+void	ft_init_images(t_game *game);
+void	ft_get_player_starting(t_game *game);
+void	ft_show_game(t_game *game);
+
 // Debug
 void	ft_print_line_content(char *line);
 void	ft_print_map(char **map);
