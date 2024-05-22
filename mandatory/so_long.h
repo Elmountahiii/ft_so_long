@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 00:07:41 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/19 18:16:10 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/22 22:31:11 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,18 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
-# include "./MLX42.h"
+# include "mlx.h"
 # include <stdbool.h>
 # include "../lib/lib.h"
 
-#define WIDTH 756
-#define HEIGHT 756
+#define WIDTH_MAX 2432
+#define HEIGHT_MAX 1088
+#define PLAYER_IMAGE "/Users/yel-moun/projects/ft_so_long/resources/my/player.xpm"
+#define WALL_IMAGE "/Users/yel-moun/projects/ft_so_long/resources/my/wall.xpm"
+#define COLLECTIBLE_IMAGE "/Users/yel-moun/projects/ft_so_long/resources/my/coin_1.xpm"
+#define EXIT_IMAGE "/Users/yel-moun/projects/ft_so_long/resources/my/new_exit.xpm"
+#define FLOOR_IMAGE "/Users/yel-moun/projects/ft_so_long/resources/my/floor.xpm"
+
 
 typedef struct s_map
 {
@@ -41,8 +47,18 @@ typedef struct s_map
 typedef struct s_game
 {
 	void	*mlx;
+	void	*player_image;
+	void	*wall_image;
+	void	*exit_image;
+	void	*collectible_image;
+	void	*floor_image;
+	int		x;
+	int		y;
+	int		width;
+	int		height;
 	void	*win;
 	t_map	*map;
+	int		movements_count;
 } t_game;
 
 int		ft_validate_extention(char *file);
@@ -64,6 +80,17 @@ int		ft_check_all_walls(char *line, bool first);
 void	ft_add_map_information(t_map *map);
 void	ft_check_map_movement(t_map *map);
 int		ft_check_reachable(char **map_cpy);
+void	ft_init_images(t_game *game);
+void	ft_get_player_starting(t_game *game);
+void	ft_show_game(t_game *game);
+void	ft_update_map(t_game *game, int key);
+void	ft_move_down(t_game *game);
+void	ft_move_left(t_game *game);
+void	ft_move_up(t_game *game);
+void	ft_move_right(t_game *game);
+void	ft_get_dimensions(t_game *game);
+void	ft_setup_map(t_game *game);
+
 // Debug
 void	ft_print_line_content(char *line);
 void	ft_print_map(char **map);

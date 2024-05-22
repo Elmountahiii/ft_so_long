@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_validate_map_content.c                          :+:      :+:    :+:   */
+/*   ft_get_player_starting.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/18 21:01:54 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/21 19:46:40 by yel-moun         ###   ########.fr       */
+/*   Created: 2024/05/20 20:45:23 by yel-moun          #+#    #+#             */
+/*   Updated: 2024/05/22 22:36:35 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	ft_validate_map_content(t_game *game)
+void	ft_get_player_starting(t_game *game)
 {
-	int		i;
+	int	x;
+	int	y;
 
-	i = 0;
-	ft_add_map_content(game->map);
-	ft_check_map_shape(game);
-	ft_check_map_walls(game->map->content);
-	ft_add_map_information(game->map);
-	ft_check_map_movement(game->map);
-	ft_get_dimensions(game);
-	ft_print_map(game->map->content);
+	y = 0;
+	while (game->map->content[y])
+	{
+		x = 0;
+		while (game->map->content[y][x])
+		{
+			if (game->map->content[y][x] == 'P')
+			{
+				game->x = x;
+				game->y = y;
+				return ;
+			}
+			x ++;
+		}
+		y ++;
+	}
 }

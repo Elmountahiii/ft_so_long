@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 00:36:45 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/19 01:10:25 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/22 22:34:59 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_clean_map(t_map *map)
 {
-	ft_free_split(map->content,ft_split_count(map->content));
+	ft_free_split(map->content, ft_split_count(map->content));
 }
