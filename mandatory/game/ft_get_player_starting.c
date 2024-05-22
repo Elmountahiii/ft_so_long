@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 20:45:23 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/20 20:49:58 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/22 22:36:35 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,10 @@ void	ft_get_player_starting(t_game *game)
 			{
 				game->x = x;
 				game->y = y;
-				return;
+				return ;
 			}
 			x ++;
 		}
 		y ++;
 	}
-	
 }
