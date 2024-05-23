@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_valitade_line_content.c                         :+:      :+:    :+:   */
+/*   ft_validate_map_information.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/18 22:20:26 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/19 14:13:10 by yel-moun         ###   ########.fr       */
+/*   Created: 2024/05/23 17:26:13 by yel-moun          #+#    #+#             */
+/*   Updated: 2024/05/23 17:28:26 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	ft_validate_line_content(char *line)
+void	ft_validate_map_information(t_game *game)
 {
-	int		i;
-
-	i = 0;
-	while (line[i] != '\0')
-	{
-		if (line[i] != '1' && line[i] != '0' && line[i] != 'P' && line[i] != 'E' && line[i] != 'C' && line[i] != '\n')
-		{
-			ft_error_exit("Error: Invalid map content.\n");
-		}
-		i++;
-	}
+	if (game->player_count > 1 || game->player_count == 0)
+		ft_error_exit("Error : invalid player count.\n");
+	if (game->collectible_count == 0)
+		ft_error_exit("Error : map has no coins.\n");
+	if (game->exit_count > 1 || game->exit_count == 0)
+		ft_error_exit("Error : invalid exit.\n");
 }

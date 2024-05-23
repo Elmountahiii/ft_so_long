@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_validate_map_content.c                          :+:      :+:    :+:   */
+/*   ft_draw_floor.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/18 21:01:54 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/23 01:08:57 by yel-moun         ###   ########.fr       */
+/*   Created: 2024/05/23 17:35:59 by yel-moun          #+#    #+#             */
+/*   Updated: 2024/05/23 17:37:16 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	ft_validate_map_content(t_game *game)
+void	ft_draw_floor(t_game *game)
 {
-	ft_add_map_content(game->map);
-	ft_check_map_shape(game);
-	ft_check_map_walls(game->map->content);
-	ft_add_map_information(game->map);
-	ft_check_map_movement(game->map);
-	ft_get_dimensions(game);
-	//ft_print_map(game->map->content);
+	int	i;
+	int	j;
+
+	i = 0;
+	while (game->map[i])
+	{
+		j = 0;
+		while (game->map[i][j])
+		{
+			if (game->map[i][j] == '\n')
+				break ;
+			mlx_put_image_to_window(game->mlx,
+				game->win, game->floor_image, j * 64, i * 64);
+			j ++;
+		}
+		i++;
+	}
 }
