@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 20:28:17 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/22 22:43:23 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/22 23:43:41 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_init_images(t_game *game)
 	if (!game->player_image)
 		ft_error_exit("Error: player image not found !\n");
 	game->wall_image = mlx_xpm_file_to_image(game->mlx,
-			ALL_IMAGE, &width, &hight);
+			WALL_IMAGE, &width, &hight);
 	if (!game->wall_image)
 		ft_error_exit("Error: wall image not found !\n");
 	game->collectible_image = mlx_xpm_file_to_image(game->mlx,

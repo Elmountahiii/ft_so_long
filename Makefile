@@ -12,15 +12,15 @@ mandatory/validation/ft_add_map_content.c  mandatory/validation/ft_check_map_sha
 mandatory/validation/ft_add_map_information.c mandatory/validation/ft_check_map_movement.c mandatory/validation/ft_check_reachable.c \
 mandatory/game/ft_init_images.c mandatory/game/ft_get_player_starting.c mandatory/game/ft_show_game.c mandatory/game/ft_update_map.c \
 mandatory/movements/ft_move_down.c mandatory/movements/ft_move_left.c mandatory/movements/ft_move_right.c mandatory/movements/ft_move_up.c \
-mandatory/validation/ft_get_dimensions.c mandatory/game/ft_setup_map.c
+mandatory/validation/ft_get_dimensions.c mandatory/game/ft_setup_map.c mandatory/movements/ft_move_player.c mandatory/game/ft_print_movements.c 
 OBJ=$(SRC_FILES:.c=.o)
 HEADER = mandatory/so_long.h
-LIBS =  lib/lib.a -lmlx -framework OpenGL -framework AppKit
+LIBS =  lib/lib.a minilibx/libmlx.a  -framework OpenGL -framework AppKit
 # // libmlx42.a libglfw3.a
 all: $(NAME)
 
 %.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -Imlx -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
 	make -C lib

@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 00:07:41 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/22 22:31:11 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/23 01:27:13 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,21 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
-# include "mlx.h"
+# include "../minilibx/mlx.h"
 # include <stdbool.h>
 # include "../lib/lib.h"
 
-#define WIDTH_MAX 2432
-#define HEIGHT_MAX 1088
-#define PLAYER_IMAGE "/Users/yel-moun/projects/ft_so_long/resources/my/player.xpm"
-#define WALL_IMAGE "/Users/yel-moun/projects/ft_so_long/resources/my/wall.xpm"
-#define COLLECTIBLE_IMAGE "/Users/yel-moun/projects/ft_so_long/resources/my/coin_1.xpm"
-#define EXIT_IMAGE "/Users/yel-moun/projects/ft_so_long/resources/my/new_exit.xpm"
-#define FLOOR_IMAGE "/Users/yel-moun/projects/ft_so_long/resources/my/floor.xpm"
+#define WIDTH_MAX 1992
+#define HEIGHT_MAX 1080
+#define PLAYER_IMAGE "/Users/elmountahi/13/fsl2/resources/my/player.xpm"
+#define WALL_IMAGE "/Users/elmountahi/13/fsl2/resources/my/wall.xpm"
+#define COLLECTIBLE_IMAGE "/Users/elmountahi/13/fsl2/resources/my/coin_1.xpm"
+#define EXIT_IMAGE "/Users/elmountahi/13/fsl2/resources/my/new_exit.xpm"
+#define FLOOR_IMAGE "/Users/elmountahi/13/fsl2/resources/my/floor.xpm"
+#define LEFT_MOVE 1
+#define RIGHT_MOVE 2
+#define UP_MOVE 3
+#define DOWN_MOVE 4
 
 
 typedef struct s_map
@@ -90,6 +94,8 @@ void	ft_move_up(t_game *game);
 void	ft_move_right(t_game *game);
 void	ft_get_dimensions(t_game *game);
 void	ft_setup_map(t_game *game);
+void	ft_move_player(t_game *game, int y, int x, int direction);
+void	ft_print_movements(t_game *game);
 
 // Debug
 void	ft_print_line_content(char *line);

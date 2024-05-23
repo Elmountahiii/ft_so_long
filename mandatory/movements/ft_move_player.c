@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_validate_map_content.c                          :+:      :+:    :+:   */
+/*   ft_move_player.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/18 21:01:54 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/23 01:08:57 by yel-moun         ###   ########.fr       */
+/*   Created: 2024/05/23 00:12:33 by yel-moun          #+#    #+#             */
+/*   Updated: 2024/05/23 01:06:54 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	ft_validate_map_content(t_game *game)
+void	ft_move_player(t_game *game, int y, int x, int direction)
 {
-	ft_add_map_content(game->map);
-	ft_check_map_shape(game);
-	ft_check_map_walls(game->map->content);
-	ft_add_map_information(game->map);
-	ft_check_map_movement(game->map);
-	ft_get_dimensions(game);
-	//ft_print_map(game->map->content);
+	game->movements_count++;
+	if (direction == UP_MOVE)
+		game->map->content[y - 1][x] = 'P';
+	else if (direction == DOWN_MOVE)
+		game->map->content[y + 1][x] = 'P';
+	else if (direction == LEFT_MOVE)
+		game->map->content[y][x - 1] = 'P';
+	else if (direction == RIGHT_MOVE)
+		game->map->content[y][x + 1] = 'P';
+	game->map->content[y][x] = '0';
 }
