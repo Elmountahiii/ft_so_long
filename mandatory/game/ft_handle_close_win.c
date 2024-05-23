@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_add_map_content.c                               :+:      :+:    :+:   */
+/*   ft_handle_close_win.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/19 11:39:03 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/19 11:48:33 by yel-moun         ###   ########.fr       */
+/*   Created: 2024/05/23 19:42:04 by yel-moun          #+#    #+#             */
+/*   Updated: 2024/05/23 19:46:15 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	ft_add_map_content(t_map *map)
+int	ft_handle_close_win(t_game *game)
 {
-	int		i;
-
-	i = 0;
-	map->content = malloc(sizeof(char *) * (map->len + 1));
-	if (map->content == NULL)
-		ft_error_exit("Error: Malloc failed.\n");
-	map->content[map->len] = NULL;
-	while (i < map->len)
-	{
-		map->content[i] = get_next_line(map->map_fd);
-		i++;
-	}
-	i = 0;
+	ft_end_game(game);
+	exit(0);
+	return (0);
 }

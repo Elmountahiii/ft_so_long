@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_all_walls.c                               :+:      :+:    :+:   */
+/*   handle_strs.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/19 12:51:31 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/19 12:58:27 by yel-moun         ###   ########.fr       */
+/*   Created: 2024/01/09 11:11:24 by yel-moun          #+#    #+#             */
+/*   Updated: 2024/01/15 12:44:56 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "ft_printf.h"
 
-int	ft_check_all_walls(char *line, bool first)
+int	put_char(char c)
 {
-	int	i;
+	int	count;
 
-	i = 0;
-	if (first)
+	count = 0;
+	count = write(1, &c, 1);
+	return (count);
+}
+
+int	put_str(char *str)
+{
+	int	count;
+
+	count = 0;
+	if (!str)
 	{
-		while (line && line[i])
-		{
-			if (i == ft_strlen(line) - 1)
-				return (0);
-			if (line[i] != '1')
-				return (1);
-			i ++;
-		}
+		write(1, "(null)", 6);
+		count = 6;
+		return (count);
 	}
-	else
+	while (str[count])
 	{
-		while (line && line[i])
-		{
-			if (line[i] != '1')
-				return (1);
-			i ++;
-		}
+		put_char(str[count]);
+		count ++;
 	}
-	return (0);
+	return (count);
 }

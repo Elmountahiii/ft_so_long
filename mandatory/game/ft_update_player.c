@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_reachable.c                               :+:      :+:    :+:   */
+/*   ft_update_player.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/19 18:00:31 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/19 18:38:15 by yel-moun         ###   ########.fr       */
+/*   Created: 2024/05/23 17:33:21 by yel-moun          #+#    #+#             */
+/*   Updated: 2024/05/23 17:34:37 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int	ft_check_reachable(char **map_cpy)
+void	ft_update_player(t_game *game)
 {
-	int		i;
-	int		j;
+	int	x;
+	int	y;
 
-	i = 0;
-	while (map_cpy && map_cpy[i])
+	y = 0;
+	while (game->map[y])
 	{
-		j = 0;
-		while (map_cpy[i][j])
+		x = 0;
+		while (game->map[y][x])
 		{
-			if (map_cpy[i][j] == 'P'  || map_cpy[i][j] == 'C')
-					return (1);
-			j ++;
+			if (game->map[y][x] == 'P')
+			{
+				game->player_x = x;
+				game->player_y = y;
+				return ;
+			}
+			x ++;
 		}
-		i ++;
+		y ++;
 	}
-	return (0);
 }

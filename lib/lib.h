@@ -15,8 +15,8 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
 # include "get_next_line/get_next_line.h"
+# include "ft_printf/ft_printf.h"
 
 char	*ft_strchr(char *s, int c);
 int		ft_strlen(char *str);

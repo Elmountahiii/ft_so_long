@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_map_lines.c                               :+:      :+:    :+:   */
+/*   ft_read_map_information.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/18 21:31:20 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/19 00:58:51 by yel-moun         ###   ########.fr       */
+/*   Created: 2024/05/19 14:13:43 by yel-moun          #+#    #+#             */
+/*   Updated: 2024/05/23 17:04:46 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int	ft_count_map_lines(char *file)
+void	ft_read_map_information(t_game *game)
 {
-	int		len;
-	int		fd;
-	char	*line;
-	
-	len = 0;
-	fd = open(file, O_RDONLY);
-	if (fd == -1)
-		ft_error_exit("Error: Invalid file.\n");
-	line = get_next_line(fd);
-	while (line != NULL)
+	int	i;
+	int	j;
+
+	i = 0;
+	while (game->map && game->map[i])
 	{
-		len++;
-		free(line);
-		line = get_next_line(fd);
+		j = 0;
+		while (game->map[i][j] && game->map[i][j])
+		{
+			if (game->map[i][j] == 'P')
+			{
+				game->player_x = i;
+				game->player_y = j;
+				game->player_count ++;
+			}
+			if (game->map[i][j] == 'C')
+				game->collectible_count ++;
+			if (game->map[i][j] == 'E')
+				game->exit_count ++;
+			j++;
+		}
+		i ++;
 	}
-	close(fd);
-	return (len);
 }
