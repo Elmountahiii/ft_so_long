@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 15:12:46 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/24 17:51:08 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/24 21:51:33 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_move_right(t_game *game)
 				ft_printf("You won !\n");
 				exit(0);
 			}
-			return ;
+			ft_move_player(game, game->player_y, game->player_x, RIGHT_MOVE);
 		}
 		else
 			ft_move_player(game, game->player_y, game->player_x, RIGHT_MOVE);

@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 00:07:41 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/24 19:46:58 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/24 21:47:47 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define PLAYER_RIGHT "./resources/character/char_right.xpm"
 # define PLAYER_UP "./resources/character/char_top.xpm"
 # define WALL_IMAGE "./resources/wall.xpm"
-# define EXIT_IMAGE "./resources/exit.xpm"
+# define EXIT_IMAGE "./resources/exit_2.xpm"
 # define FLOOR_IMAGE "./resources/floor.xpm"
 # define COLLECTIBLE_IMAGE "./resources/coins/coin_0.xpm"
 # define COIN_1 "./resources/coins/coin_1.xpm"
