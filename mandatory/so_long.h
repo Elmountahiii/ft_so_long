@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 00:07:41 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/23 20:39:49 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/24 19:46:58 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,18 @@
 
 # define WIDTH_MAX 1992
 # define HEIGHT_MAX 1080
-# define PLAYER_IMAGE "./resources/my/player.xpm"
-# define WALL_IMAGE "./resources/my/wall.xpm"
-# define COLLECTIBLE_IMAGE "./resources/my/coin_0.xpm"
-# define EXIT_IMAGE "./resources/my/new_exit.xpm"
-# define FLOOR_IMAGE "./resources/my/floor.xpm"
+# define PLAYER_IDL "./resources/character/char_idl.xpm"
+# define PLAYER_LEFT "./resources/character/char_left.xpm"
+# define PLAYER_RIGHT "./resources/character/char_right.xpm"
+# define PLAYER_UP "./resources/character/char_top.xpm"
+# define WALL_IMAGE "./resources/wall.xpm"
+# define EXIT_IMAGE "./resources/exit.xpm"
+# define FLOOR_IMAGE "./resources/floor.xpm"
+# define COLLECTIBLE_IMAGE "./resources/coins/coin_0.xpm"
+# define COIN_1 "./resources/coins/coin_1.xpm"
+# define COIN_2 "./resources/coins/coin_2.xpm"
+# define COIN_3 "./resources/coins/coin_3.xpm"
+# define COIN_4 "./resources/coins/coin_4.xpm"
 # define LEFT_MOVE 1
 # define RIGHT_MOVE 2
 # define UP_MOVE 3
@@ -39,10 +46,17 @@ typedef struct s_game
 	int		fd;
 	char	*file;
 	void	*player_image;
+	void	*player_left;
+	void	*player_right;
+	void	*player_up;
 	void	*wall_image;
 	void	*exit_image;
 	void	*collectible_image;
 	void	*floor_image;
+	void	*coin_1;
+	void	*coin_2;
+	void	*coin_3;
+	void	*coin_4;
 	int		player_count;
 	int		exit_count;
 	int		collectible_count;
@@ -51,6 +65,8 @@ typedef struct s_game
 	int		map_x;
 	int		map_y;
 	char	**map;
+	int 	index;
+	int		player_direction;
 	int		movements_count;
 }	t_game;
 
@@ -60,7 +76,7 @@ void	ft_print_map(char **map);
 // Game
 void	ft_draw_floor(t_game *game);
 int		ft_handle_click(int key, t_game *game);
-t_game	*ft_init_game(char *file);
+void 	ft_init_game(t_game *game ,char *file);
 void	ft_init_images(t_game *game);
 void	ft_print_movements(t_game *game);
 void	ft_setup_map(t_game *game);

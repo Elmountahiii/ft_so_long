@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 15:15:26 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/23 19:39:14 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/24 17:51:14 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_move_up(t_game *game)
 {
 	if (game->map[game->player_y - 1][game->player_x] != '1')
 	{
+		game->player_direction = 1;
 		if (game->map[game->player_y - 1][game->player_x] == 'C')
 		{
 			game->movements_count++;
