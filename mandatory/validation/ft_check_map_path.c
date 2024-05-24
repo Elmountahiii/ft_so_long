@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 17:06:22 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/23 17:08:57 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/24 21:13:49 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	ft_check_map_path(t_game *game)
 	}
 	map_cpy[i] = NULL;
 	ft_flood_fil(map_cpy, game->player_x, game->player_y);
+	ft_print_map(map_cpy);
 	if (ft_check_reachable(map_cpy))
 	{
 		ft_free_split(map_cpy, ft_split_count(map_cpy));
