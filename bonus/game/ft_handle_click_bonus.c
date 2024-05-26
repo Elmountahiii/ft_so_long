@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_validate_map.c                                  :+:      :+:    :+:   */
+/*   ft_handle_click_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/18 20:53:03 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/26 17:40:14 by yel-moun         ###   ########.fr       */
+/*   Created: 2024/05/26 17:28:11 by yel-moun          #+#    #+#             */
+/*   Updated: 2024/05/26 17:28:25 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../so_long_bonus.h"
 
-void	ft_validate_map(t_game *game)
+int	ft_handle_click(int key, t_game *game)
 {
-	ft_validate_extention(game);
-	ft_add_map(game);
-	ft_check_map_size(game);
-	ft_check_map_content(game);
-	ft_check_map_walls(game);
-	ft_read_map_information(game);
-	ft_validate_map_information(game);
-	ft_check_map_path(game);
+	if (key == 53)
+		ft_clean_and_exit(game, "Game Over", 0);
+	else if (key == 123 || key == 124 || key == 125 || key == 126)
+	{
+		ft_update_map(game, key);
+		ft_show_game(game);
+	}
+	return (0);
 }
