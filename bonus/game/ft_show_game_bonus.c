@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 17:31:43 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/26 19:28:32 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/26 22:55:05 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ static void	ft_put_floor(t_game *game, int i, int j)
 		game->win, game->floor_image, j * 64, i * 64);
 }
 
-// static void	ft_put_collectible(t_game *game, int i, int j)
-// {
-// 	mlx_put_image_to_window(game->mlx,
-// 		game->win, game->collectible_image, j * 64, i * 64);
-// }
+static void	ft_put_demon(t_game *game, int y, int x)
+{
+	mlx_put_image_to_window(game->mlx,
+		game->win, game->demon, x * 64, y * 64);
+}
 
 static void	ft_put_exit(t_game *game, int i, int j)
 {
@@ -38,25 +38,28 @@ static void	ft_put_exit(t_game *game, int i, int j)
 
 void	ft_show_game(t_game *game)
 {
-	int	i;
+	int	y;
 	int	j;
 
-	i = 0;
-	while (game->map[i])
+	y = 0;
+	while (game->map[y])
 	{
 		j = 0;
-		while (game->map[i][j])
+		while (game->map[y][j])
 		{
-			if (game->map[i][j] == '1')
-				ft_put_wall(game, i, j);
-			else if (game->map[i][j] == '0')
-				ft_put_floor(game, i, j);
-			else if (game->map[i][j] == 'E')
-				ft_put_exit(game, i, j);
-			else if (game->map[i][j] == 'P')
-				ft_put_player(game, i, j);
+			if (game->map[y][j] == '1')
+				ft_put_wall(game, y, j);
+			else if (game->map[y][j] == '0')
+				ft_put_floor(game, y, j);
+			else if (game->map[y][j] == 'E')
+				ft_put_exit(game, y, j);
+			else if (game->map[y][j] == 'P')
+				ft_put_player(game, y, j);
+			else if (game->map[y][j] == 'D')
+				ft_put_demon(game, y, j);
+					
 			j++;
 		}
-		i ++;
+		y ++;
 	}
 }
