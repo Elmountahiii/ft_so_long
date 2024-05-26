@@ -6,13 +6,13 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 23:57:53 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/24 19:37:40 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/25 21:44:42 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	ft_init_game(t_game *game, char * file)
+void	ft_init_game(t_game *game, char *file)
 {
 	game->file = file;
 	game->fd = -1;

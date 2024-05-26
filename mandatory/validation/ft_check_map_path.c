@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 17:06:22 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/24 21:13:49 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/26 15:17:49 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ void	ft_check_map_path(t_game *game)
 	i = 0;
 	map_cpy = malloc(sizeof(char *) * (game->map_y + 1));
 	if (map_cpy == NULL)
+	{
+		ft_free_split(game->map, ft_split_count(game->map));
 		ft_error_exit("Error: Malloc failed.\n");
+	}
 	while (i < game->map_y)
 	{
 		map_cpy[i] = ft_strdup(game->map[i]);
@@ -49,10 +52,10 @@ void	ft_check_map_path(t_game *game)
 	}
 	map_cpy[i] = NULL;
 	ft_flood_fil(map_cpy, game->player_x, game->player_y);
-	ft_print_map(map_cpy);
 	if (ft_check_reachable(map_cpy))
 	{
 		ft_free_split(map_cpy, ft_split_count(map_cpy));
+		ft_free_split(game->map, ft_split_count(game->map));
 		ft_error_exit("Error : Map is not valid. \n");
 	}
 	ft_free_split(map_cpy, ft_split_count(map_cpy));
