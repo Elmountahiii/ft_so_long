@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_validate_map.c                                  :+:      :+:    :+:   */
+/*   ft_print_line_content_bonus.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/18 20:53:03 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/26 17:40:14 by yel-moun         ###   ########.fr       */
+/*   Created: 2024/05/26 17:23:43 by yel-moun          #+#    #+#             */
+/*   Updated: 2024/05/26 17:25:44 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../so_long_bonus.h"
 
-void	ft_validate_map(t_game *game)
+void	ft_print_line_content(char *line)
 {
-	ft_validate_extention(game);
-	ft_add_map(game);
-	ft_check_map_size(game);
-	ft_check_map_content(game);
-	ft_check_map_walls(game);
-	ft_read_map_information(game);
-	ft_validate_map_information(game);
-	ft_check_map_path(game);
+	int		i;
+
+	i = 0;
+	while (line[i] != '\0')
+	{
+		write(1, &line[i], 1);
+		i++;
+	}
 }

@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_validate_map.c                                  :+:      :+:    :+:   */
+/*   ft_init_game_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/18 20:53:03 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/26 17:40:14 by yel-moun         ###   ########.fr       */
+/*   Created: 2024/05/26 17:29:12 by yel-moun          #+#    #+#             */
+/*   Updated: 2024/05/26 17:29:25 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../so_long_bonus.h"
 
-void	ft_validate_map(t_game *game)
+void	ft_init_game(t_game *game, char *file)
 {
-	ft_validate_extention(game);
-	ft_add_map(game);
-	ft_check_map_size(game);
-	ft_check_map_content(game);
-	ft_check_map_walls(game);
-	ft_read_map_information(game);
-	ft_validate_map_information(game);
-	ft_check_map_path(game);
+	game->file = file;
+	game->fd = -1;
+	game->collectible_count = 0;
+	game->exit_count = 0;
+	game->player_count = 0;
+	game->player_y = 0;
+	game->player_x = 0;
+	game->map_y = 0;
+	game->map_x = 0;
+	game->map = NULL;
+	game->movements_count = 0;
+	game->player_direction = 2;
+	game->index = 0;
 }

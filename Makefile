@@ -21,6 +21,9 @@ LIBS =  lib/lib.a minilibx/libmlx.a  -framework OpenGL -framework AppKit
 # // libmlx42.a libglfw3.a
 all: $(NAME)
 
+bonus :
+	@cd bonus && make all
+
 %.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
@@ -30,12 +33,14 @@ $(NAME): $(OBJ)
 
 clean:
 	cd lib && make clean
+	cd bonus && make clean
 	$(RM) $(OBJ)
 
 fclean: clean
 	$(RM) $(NAME)
+	cd bonus && make fclean
 	cd lib && make fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
