@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 00:06:01 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/26 17:07:07 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/27 18:29:20 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ int	main(int argc, char *argv[])
 	{
 		ft_init_game(&game, argv[1]);
 		ft_validate_map(&game);
-		ft_init_images(&game);
 		ft_init_mlx(&game);
+		ft_init_images(&game);
 		ft_setup_map(&game);
 		ft_update_player(&game);
 		ft_show_game(&game);

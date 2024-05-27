@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 17:29:45 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/26 19:46:23 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/26 21:54:08 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,13 @@ static void	init_images_2(t_game *game)
 	{
 		ft_free_split(game->map, ft_split_count(game->map));
 		ft_error_exit("Error: collectible image not found !\n");
+	}
+	game->demon = mlx_xpm_file_to_image(game->mlx,
+			DEMON_IMAGE, &width, &hight);
+	if (!game->demon)
+	{
+		ft_free_split(game->map, ft_split_count(game->map));
+		ft_error_exit("Error: demon image not found !\n");
 	}
 }
 

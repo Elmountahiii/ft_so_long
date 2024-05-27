@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 11:21:27 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/26 16:02:46 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/27 16:13:38 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ft_check_map_walls(t_game *game)
 			|| game->map[i][ft_strlen(game->map[i]) - 2] != '1')
 		{
 			ft_free_split(game->map, ft_split_count(game->map));
-			ft_error_exit("Map is not surrounded by walls\n");
+			ft_error_exit("Error : Map is not surrounded by walls\n");
 		}
 		last = i;
 		i++;
@@ -61,6 +61,6 @@ void	ft_check_map_walls(t_game *game)
 		|| ft_check_all_walls(game->map[last], false))
 	{
 		ft_free_split(game->map, ft_split_count(game->map));
-		ft_error_exit("Map is not surrounded by walls\n");
+		ft_error_exit("Error : Map is not surrounded by walls\n");
 	}
 }

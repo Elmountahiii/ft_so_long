@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 15:12:46 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/26 16:10:05 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/27 17:00:40 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,11 @@ void	ft_move_right(t_game *game)
 			if (game->map[game->player_y][game->player_x + 1] == 'E')
 			{
 				if (game->collectible_count == 0)
+				{
+					game->movements_count++;
+					ft_print_movements(game);
 					ft_clean_and_exit(game, "You won!", 0);
+				}
 			}
 			ft_move_player(game, game->player_y, game->player_x, RIGHT_MOVE);
 		}

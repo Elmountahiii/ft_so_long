@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 23:57:53 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/25 21:44:42 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/27 17:12:28 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,4 @@ void	ft_init_game(t_game *game, char *file)
 	game->map = NULL;
 	game->movements_count = 0;
 	game->player_direction = 2;
-	game->index = 0;
 }

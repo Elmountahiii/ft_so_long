@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 17:34:13 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/26 17:34:27 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/27 16:05:44 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,23 @@ static void	ft_check_is_exit(t_game *game, int y, int x, int *check)
 	}
 }
 
+static void	ft_check_is_demon(t_game *game, int y, int x, int direction)
+{
+	if (direction == UP_MOVE && game->map[y - 1][x] == 'D')
+		ft_clean_and_exit(game, "Game Over.", 1);
+	else if (direction == DOWN_MOVE && game->map[y + 1][x] == 'D')
+		ft_clean_and_exit(game, "Game Over.", 1);
+	else if (direction == LEFT_MOVE && game->map[y][x - 1] == 'D')
+		ft_clean_and_exit(game, "Game Over.", 1);
+	else if (direction == RIGHT_MOVE && game->map[y][x + 1] == 'D')
+		ft_clean_and_exit(game, "Game Over.", 1);
+}
+
 void	ft_move_player(t_game *game, int y, int x, int direction)
 {
 	static int	check = 0;
 
+	ft_check_is_demon(game, y, x, direction);
 	game->movements_count++;
 	ft_check_is_exit(game, y, x, &check);
 	if (direction == UP_MOVE && game->map[y - 1][x] == 'E')

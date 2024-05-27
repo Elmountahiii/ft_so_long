@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:23:46 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/23 19:39:48 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/27 19:56:44 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ int	ft_atoi(const char *str, int *c)
 	}
 	return (result * sign);
 }
-
-
 
 int	hex_len(unsigned long number)
 {

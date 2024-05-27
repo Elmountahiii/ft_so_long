@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 17:23:59 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/26 19:49:35 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:10:44 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define WALL_IMAGE "./resources/wall.xpm"
 # define EXIT_IMAGE "./resources/exit_2.xpm"
 # define FLOOR_IMAGE "./resources/floor.xpm"
+# define DEMON_IMAGE "./resources/demon.xpm"
 # define COLLECTIBLE_IMAGE "./resources/coins/coin_0.xpm"
 # define COIN_1 "./resources/coins/coin_1.xpm"
 # define COIN_2 "./resources/coins/coin_2.xpm"
@@ -57,15 +58,16 @@ typedef struct s_game
 	void	*coin_2;
 	void	*coin_3;
 	void	*coin_4;
+	void	*demon;
 	int		player_count;
 	int		exit_count;
 	int		collectible_count;
+	int		demon_count;
 	int		player_x;
 	int		player_y;
 	int		map_x;
 	int		map_y;
 	char	**map;
-	int		index;
 	int		player_direction;
 	int		movements_count;
 }	t_game;
@@ -95,6 +97,8 @@ void	ft_put_coin_2(t_game *game, int y, int x);
 void	ft_put_coin_3(t_game *game, int y, int x);
 void	ft_put_coin_4(t_game *game, int y, int x);
 int		ft_animate_coins(t_game *game);
+int		ft_move_demon(t_game *game);
+void	ft_flood_fil_bonus(char **map, int x, int y);
 // Movements
 void	ft_move_down(t_game *game);
 void	ft_move_left(t_game *game);

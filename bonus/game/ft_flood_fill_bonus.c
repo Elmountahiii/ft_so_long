@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_game_bonus.c                               :+:      :+:    :+:   */
+/*   ft_flood_fill_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/26 17:29:12 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/26 21:54:55 by yel-moun         ###   ########.fr       */
+/*   Created: 2024/05/27 15:08:58 by yel-moun          #+#    #+#             */
+/*   Updated: 2024/05/27 16:00:18 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long_bonus.h"
 
-void	ft_init_game(t_game *game, char *file)
+void	ft_flood_fil_bonus(char **map, int x, int y)
 {
-	game->file = file;
-	game->fd = -1;
-	game->collectible_count = 0;
-	game->exit_count = 0;
-	game->player_count = 0;
-	game->player_y = 0;
-	game->player_x = 0;
-	game->map_y = 0;
-	game->map_x = 0;
-	game->map = NULL;
-	game->movements_count = 0;
-	game->player_direction = 2;
-	game->demon_count = 0;
+	if ((map[x][y] == '1' || map[x][y] == '*'))
+		return ;
+	if (map[x][y] == 'D')
+	{
+		map[x][y] = '1';
+		return ;
+	}
+	map[x][y] = '*';
+	ft_flood_fil_bonus(map, x - 1, y);
+	ft_flood_fil_bonus(map, x + 1, y);
+	ft_flood_fil_bonus(map, x, y - 1);
+	ft_flood_fil_bonus(map, x, y + 1);
 }

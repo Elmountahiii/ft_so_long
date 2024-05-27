@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 00:07:41 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/26 16:19:09 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/27 17:12:16 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,6 @@ typedef struct s_game
 	void	*exit_image;
 	void	*collectible_image;
 	void	*floor_image;
-	void	*coin_1;
-	void	*coin_2;
-	void	*coin_3;
-	void	*coin_4;
 	int		player_count;
 	int		exit_count;
 	int		collectible_count;
@@ -65,7 +61,6 @@ typedef struct s_game
 	int		map_x;
 	int		map_y;
 	char	**map;
-	int		index;
 	int		player_direction;
 	int		movements_count;
 }	t_game;

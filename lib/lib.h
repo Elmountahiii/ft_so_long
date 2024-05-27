@@ -45,5 +45,6 @@ int		ft_strncmp(char *s1, char *s2, int n);
 int		ft_strcmp(char *s1, char *s2);
 void	ft_flood_fil(char **map, int x, int y);
 char	*ft_strrchr(char *s, int c);
+char	*ft_itoa(int n);
 
 #endif

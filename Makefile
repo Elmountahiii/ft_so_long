@@ -1,6 +1,7 @@
 NAME = so_long
 CC = cc
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror
+#  -g -fsanitize=address
 RM = rm -f
 SRC_FILES = mandatory/main.c \
 mandatory/debug/ft_print_line_content.c mandatory/debug/ft_print_map.c \
