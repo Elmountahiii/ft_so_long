@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 17:31:43 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/26 22:55:05 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/27 19:48:29 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ void	ft_show_game(t_game *game)
 				ft_put_player(game, y, j);
 			else if (game->map[y][j] == 'D')
 				ft_put_demon(game, y, j);
-					
 			j++;
 		}
 		y ++;
 	}
+	ft_print_movements(game);
 }

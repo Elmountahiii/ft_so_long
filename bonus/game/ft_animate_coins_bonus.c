@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 19:03:54 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/26 22:47:55 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/27 19:23:22 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,10 @@ int	ft_animate_coins(t_game *game)
 		y ++;
 	}
 	i ++;
-	ft_move_demon(game);
+	if (i == 7000)
+	{
+		ft_move_demon(game);
+		i = 0;
+	}
 	return (0);
 }

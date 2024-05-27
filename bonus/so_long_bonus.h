@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 17:23:59 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/26 22:17:20 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:10:44 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ void	ft_put_coin_3(t_game *game, int y, int x);
 void	ft_put_coin_4(t_game *game, int y, int x);
 int		ft_animate_coins(t_game *game);
 int		ft_move_demon(t_game *game);
+void	ft_flood_fil_bonus(char **map, int x, int y);
 // Movements
 void	ft_move_down(t_game *game);
 void	ft_move_left(t_game *game);

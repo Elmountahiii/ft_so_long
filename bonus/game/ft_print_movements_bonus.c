@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 17:30:16 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/26 17:30:28 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/27 19:56:19 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,10 @@
 
 void	ft_print_movements(t_game *game)
 {
-	ft_printf("Movements: %d\n", game->movements_count);
+	char	*counter;
+
+	counter = ft_itoa(game->movements_count);
+	mlx_string_put(game->mlx, game->win, 10, 10, 0xe8e8e8, "MOVES :");
+	mlx_string_put(game->mlx, game->win, 65, 10, 0xe8e8e8, counter);
+	free(counter);
 }
