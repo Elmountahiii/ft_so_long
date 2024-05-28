@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 17:40:52 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/27 18:38:38 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/28 12:48:14 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,10 @@ static void	ft_init_mlx(t_game *game)
 	}
 }
 
-void	ll(void)
-{
-	system("leaks so_long_bonus");
-}
-
 int	main(int argc, char *argv[])
 {
 	t_game	game;
 
-	atexit(ll);
 	if (argc == 2)
 	{
 		ft_init_game(&game, argv[1]);

@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 17:38:28 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/27 20:42:43 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/28 12:22:04 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	ft_check_demon_count(t_game *game)
 {
 	int	y;
 	int	x;
-	int count;
+	int	count;
 
 	count = 0;
 	y = 0;
@@ -31,12 +31,19 @@ static void	ft_check_demon_count(t_game *game)
 		}
 		y ++;
 	}
-	if (count == 0)
+	if (count == 0 && count < 3)
 	{
 		ft_free_split(game->map, ft_split_count(game->map));
-		ft_error_exit("Error : add at least 1 enemy.\n");
+		ft_error_exit("Error : invalid number of enemy.\n");
 	}
 }
+
+static void	ft_update_position(t_game *game, int i, int j)
+{
+	game->player_x = i;
+	game->player_y = j;
+}
+
 void	ft_read_map_information(t_game *game)
 {
 	int	i;
@@ -50,8 +57,7 @@ void	ft_read_map_information(t_game *game)
 		{
 			if (game->map[i][j] == 'P')
 			{
-				game->player_x = i;
-				game->player_y = j;
+				ft_update_position(game, i, j);
 				game->player_count ++;
 			}
 			else if (game->map[i][j] == 'C')
