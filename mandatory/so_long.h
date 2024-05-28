@@ -6,7 +6,7 @@
 /*   By: yel-moun <yel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 00:07:41 by yel-moun          #+#    #+#             */
-/*   Updated: 2024/05/27 17:12:16 by yel-moun         ###   ########.fr       */
+/*   Updated: 2024/05/28 12:50:13 by yel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,24 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
-# include "../minilibx/mlx.h"
+# include "mlx.h"
 # include <stdbool.h>
 # include "../lib/lib.h"
 
 # define WIDTH_MAX 2432
 # define HEIGHT_MAX 1088
-# define PLAYER_IDL "./resources/character/char_idl.xpm"
-# define PLAYER_LEFT "./resources/character/char_left.xpm"
-# define PLAYER_RIGHT "./resources/character/char_right.xpm"
-# define PLAYER_UP "./resources/character/char_top.xpm"
-# define WALL_IMAGE "./resources/wall.xpm"
-# define EXIT_IMAGE "./resources/exit_2.xpm"
-# define FLOOR_IMAGE "./resources/floor.xpm"
-# define COLLECTIBLE_IMAGE "./resources/coins/coin_0.xpm"
-# define COIN_1 "./resources/coins/coin_1.xpm"
-# define COIN_2 "./resources/coins/coin_2.xpm"
-# define COIN_3 "./resources/coins/coin_3.xpm"
-# define COIN_4 "./resources/coins/coin_4.xpm"
+# define PLAYER_IDL "./textures/character/char_idl.xpm"
+# define PLAYER_LEFT "./textures/character/char_left.xpm"
+# define PLAYER_RIGHT "./textures/character/char_right.xpm"
+# define PLAYER_UP "./textures/character/char_top.xpm"
+# define WALL_IMAGE "./textures/wall.xpm"
+# define EXIT_IMAGE "./textures/exit_2.xpm"
+# define FLOOR_IMAGE "./textures/floor.xpm"
+# define COLLECTIBLE_IMAGE "./textures/coins/coin_0.xpm"
+# define COIN_1 "./textures/coins/coin_1.xpm"
+# define COIN_2 "./textures/coins/coin_2.xpm"
+# define COIN_3 "./textures/coins/coin_3.xpm"
+# define COIN_4 "./textures/coins/coin_4.xpm"
 # define LEFT_MOVE 1
 # define RIGHT_MOVE 2
 # define UP_MOVE 3
@@ -65,9 +65,6 @@ typedef struct s_game
 	int		movements_count;
 }	t_game;
 
-// Debug
-void	ft_print_line_content(char *line);
-void	ft_print_map(char **map);
 // Game
 void	ft_draw_floor(t_game *game);
 int		ft_handle_click(int key, t_game *game);
